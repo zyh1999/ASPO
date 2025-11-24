@@ -151,6 +151,11 @@ We have currently provided the script and data to reproduce the results of the â
 
 ```bash
 bash ./scripts/train/run_archer2.0_qwen2.5_1.5b_code.sh
+
+# if you get errors related to this:
+unset ROCR_VISIBLE_DEVICES
+unset HIP_VISIBLE_DEVICES
+
 ```
 
 ### 3 Evaluation

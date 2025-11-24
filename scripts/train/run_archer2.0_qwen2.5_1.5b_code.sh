@@ -32,7 +32,7 @@ gen_prompt_bsz=$((train_prompt_bsz * 1))
 train_prompt_mini_bsz=16
 
 # Paths
-MODEL_PATH=./models/DeepSeek-R1-Distill-Qwen-1.5B
+MODEL_PATH=deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
 CKPTS_DIR=./output/${project_name}/${exp_name} && mkdir -p $CKPTS_DIR
 data_dir=./data
 TRAIN_FILE=$data_dir/train/archer2.0-code-1.5b-train.json
@@ -144,7 +144,7 @@ python -m dapo.main_dapo \
     trainer.logger=['console','wandb'] \
     trainer.project_name="${project_name}" \
     trainer.experiment_name="${exp_name}" \
-    trainer.n_gpus_per_node=8 \
+    trainer.n_gpus_per_node=1 \
     trainer.nnodes="${nnodes}" \
     trainer.balance_batch=False \
     trainer.val_before_train=False \

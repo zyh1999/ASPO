@@ -105,6 +105,15 @@ While our mathematical models are still in training and have not converged, we h
 
 ## Getting Started
 
+### Datasets
+
+```
+python tools/download_data.py
+
+wget -O data/test/livecodebench_v5.json \
+  https://huggingface.co/datasets/Fate-Zero/ArcherCodeR-Dataset/resolve/main/test/livecodebench_v5.json
+```
+
 ### 1 Installation
 
 ```bash
@@ -119,6 +128,9 @@ pip install --no-cache-dir flash_attn-2.7.3+cu12torch2.5cxx11abiFALSE-cp310-cp31
 
 cd Archer2.0
 pip install -e .
+
+# change nano ~/.conda/envs/archer/lib/python3.10/site-packages/peft/tuners/lora/model.py to import directly from transformers
+pip install -u transformers
 ```
 
 #### Initialize Ray Cluster

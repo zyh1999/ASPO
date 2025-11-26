@@ -554,8 +554,10 @@ def compute_policy_loss_archer(
 
     ratio = torch.exp(torch.clamp(log_prob - old_log_prob, min=-20.0, max=20.0))
 
-    negative_clip_ratio = torch.where(high_entropy_mask, torch.clamp(ratio, min=1-negative_low_entropy_clip_ratio_low, max=None), torch.clamp(ratio, min=1-negative_high_entropy_clip_ratio_low, max=None))
-    positive_clip_ratio = torch.where(high_entropy_mask, torch.clamp(ratio, min=None, max=1+positive_low_entropy_clip_ratio_high), torch.clamp(ratio, min=None, max=1+positive_high_entropy_clip_ratio_high))
+    # high_entropy_mask 可能是 LongTensor，这里统一转成 bool，避免 torch.where 类型错误
+    mask = high_entropy_mask.bool()
+    negative_clip_ratio = torch.where(mask, torch.clamp(ratio, min=1-negative_low_entropy_clip_ratio_low, max=None), torch.clamp(ratio, min=1-negative_high_entropy_clip_ratio_low, max=None))
+    positive_clip_ratio = torch.where(mask, torch.clamp(ratio, min=None, max=1+positive_low_entropy_clip_ratio_high), torch.clamp(ratio, min=None, max=1+positive_high_entropy_clip_ratio_high))
 
     clip_ratio = torch.where(advantages < 0, negative_clip_ratio, positive_clip_ratio)
 

@@ -21,25 +21,28 @@ clip_ratio_high=0.2
 loss_agg_mode=token-mean
 
 max_prompt_length=$((1024 * 2))
-max_response_length=$((1024 * 32))
+max_response_length=$((1024 * 4))
 enable_overlong_buffer=True
 overlong_buffer_len=16
 overlong_penalty_factor=1.0
-v_max_response_length=$((1024 * 32))
+v_max_response_length=$((1024 * 4))
 
 train_prompt_bsz=64
 gen_prompt_bsz=$((train_prompt_bsz * 1))
 train_prompt_mini_bsz=16
 
 # Paths
-MODEL_PATH=./models/DeepSeek-R1-Distill-Qwen-1.5B
+# 使用 Hugging Face 仓库名，而不是本地不存在的相对路径
+MODEL_PATH=deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
 CKPTS_DIR=./output/${project_name}/${exp_name} && mkdir -p $CKPTS_DIR
 data_dir=./data
-TRAIN_FILE=$data_dir/train/archer2.0-math-1.5b-train.json
-TEST_FILE=$data_dir/test/aime2025.json
+train_dir=$data_dir/train
+test_dir=$data_dir/test
+TRAIN_FILE=$train_dir/archer2.0-math-1.5b-train.parquet
+TEST_FILE=$test_dir/archer2.0-math-1.5b-val.parquet
 
 # Algorithm
-n_resp_per_prompt=16
+n_resp_per_prompt=8
 temperature=1.0
 top_p=1.0
 top_k=-1 # 0 for HF rollout, -1 for vLLM rollout
@@ -70,6 +73,47 @@ high_entropy_clip_ratio_high=0.4
 # Trainer
 use_overlong_filter=False
 
+# 如果本地没有 Archer2.0-Math-1.5B 的 train/val parquet，就从 HF 下载并转换
+if [ ! -f "${TRAIN_FILE}" ] || [ ! -f "${TEST_FILE}" ]; then
+  python - << 'EOF'
+from datasets import load_dataset
+import pandas as pd
+import os, json
+
+train_dir = os.path.join("data", "train")
+test_dir = os.path.join("data", "test")
+os.makedirs(train_dir, exist_ok=True)
+os.makedirs(test_dir, exist_ok=True)
+
+ds = load_dataset("Fate-Zero/Archer2.0-Math-1.5B", split="train")
+split = ds.train_test_split(test_size=0.05, seed=42)
+train_ds = split["train"]
+val_ds = split["test"]
+
+def convert_and_save(hf_ds, out_path):
+    rows = []
+    for ex in hf_ds:
+        gt_list = ex.get("ground_truth") or []
+        gt = gt_list[0] if gt_list else ""
+        row = {
+            "prompt": [
+                {"role": "user", "content": ex["prompt"]}
+            ],
+            "reward_model": {"ground_truth": gt},
+            "data_source": ex.get("ability", "math"),
+        }
+        rows.append(row)
+
+    df = pd.DataFrame(rows)
+    df.to_parquet(out_path)
+    print("wrote", out_path, "rows:", len(df))
+
+train_out = os.path.join(train_dir, "archer2.0-math-1.5b-train.parquet")
+val_out = os.path.join(test_dir, "archer2.0-math-1.5b-val.parquet")
+convert_and_save(train_ds, train_out)
+convert_and_save(val_ds, val_out)
+EOF
+fi
 
 python -m dapo.main_dapo \
     data.train_files="${TRAIN_FILE}" \
@@ -79,6 +123,7 @@ python -m dapo.main_dapo \
     data.truncation='error' \
     data.max_prompt_length=${max_prompt_length} \
     data.max_response_length=${max_response_length} \
+    +data.dataloader_num_workers=1 \
     data.gen_batch_size=${gen_prompt_bsz} \
     data.train_batch_size=${train_prompt_bsz} \
     actor_rollout_ref.rollout.n=${n_resp_per_prompt} \
@@ -99,7 +144,7 @@ python -m dapo.main_dapo \
     +actor_rollout_ref.actor.low_entropy_clip_ratio_high=${low_entropy_clip_ratio_high} \
     +actor_rollout_ref.actor.high_entropy_clip_ratio_low=${high_entropy_clip_ratio_low} \
     +actor_rollout_ref.actor.high_entropy_clip_ratio_high=${high_entropy_clip_ratio_high} \
-    +actor_rollout_ref.actor.use_archer_policy_loss=${use_archer_policy_loss} \
+    actor_rollout_ref.actor.use_archer_policy_loss=${use_archer_policy_loss} \
     actor_rollout_ref.ref.log_prob_use_dynamic_bsz=${use_dynamic_bsz} \
     actor_rollout_ref.ref.log_prob_micro_batch_size_per_gpu=1 \
     actor_rollout_ref.rollout.log_prob_use_dynamic_bsz=${use_dynamic_bsz} \
@@ -120,7 +165,7 @@ python -m dapo.main_dapo \
     actor_rollout_ref.actor.grad_clip=1.0 \
     actor_rollout_ref.actor.loss_agg_mode=${loss_agg_mode} \
     actor_rollout_ref.actor.ulysses_sequence_parallel_size=${sp_size} \
-    actor_rollout_ref.rollout.gpu_memory_utilization=0.75 \
+    actor_rollout_ref.rollout.gpu_memory_utilization=0.6\
     actor_rollout_ref.rollout.tensor_model_parallel_size=${gen_tp} \
     actor_rollout_ref.rollout.enable_chunked_prefill=True \
     actor_rollout_ref.rollout.max_num_batched_tokens=$((max_prompt_length + v_max_response_length)) \
@@ -144,13 +189,13 @@ python -m dapo.main_dapo \
     trainer.logger=['console','wandb'] \
     trainer.project_name="${project_name}" \
     trainer.experiment_name="${exp_name}" \
-    trainer.n_gpus_per_node=8 \
+    trainer.n_gpus_per_node=2 \
     trainer.nnodes="${nnodes}" \
     trainer.balance_batch=False \
     trainer.val_before_train=False \
     trainer.test_freq=-1 \
-    trainer.save_freq=10 \
-    trainer.total_epochs=10 \
+    trainer.save_freq=40 \
+    trainer.total_epochs=2 \
     trainer.default_local_dir="${CKPTS_DIR}" \
     trainer.resume_mode=auto \
     +trainer.validation_data_dir=${CKPTS_DIR}/eval \

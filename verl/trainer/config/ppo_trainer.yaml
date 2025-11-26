@@ -186,6 +186,12 @@ actor_rollout_ref:
     # Entropy regularization coefficient in PPO loss
     entropy_coeff: 0
     
+    # Whether to use entropy-based token separation for clipping (Archer-style)
+    use_token_entropy_separate: false
+
+    # Whether to use Archer2.0 custom policy loss instead of standard PPO loss
+    use_archer_policy_loss: false
+    
     # Whether to use KL loss instead of KL reward penalty. True for GRPO
     use_kl_loss: false
     

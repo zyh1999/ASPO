@@ -1,0 +1,9 @@
+{"time":"2025-11-27T01:33:22.245628141Z","level":"INFO","msg":"stream: starting","core version":"0.23.0"}
+{"time":"2025-11-27T01:33:22.52823957Z","level":"INFO","msg":"stream: created new stream","id":"Archer2.0-Qwen2.5-1.5B-Math"}
+{"time":"2025-11-27T01:33:22.528393759Z","level":"INFO","msg":"handler: started","stream_id":"Archer2.0-Qwen2.5-1.5B-Math"}
+{"time":"2025-11-27T01:33:22.542502098Z","level":"INFO","msg":"stream: started","id":"Archer2.0-Qwen2.5-1.5B-Math"}
+{"time":"2025-11-27T01:33:22.542674121Z","level":"INFO","msg":"writer: started","stream_id":"Archer2.0-Qwen2.5-1.5B-Math"}
+{"time":"2025-11-27T01:33:22.542692405Z","level":"INFO","msg":"sender: started","stream_id":"Archer2.0-Qwen2.5-1.5B-Math"}
+{"time":"2025-11-27T01:33:23.124619835Z","level":"WARN","msg":"handleCodeSave: program relative path is empty"}
+{"time":"2025-11-27T01:33:24.409656506Z","level":"ERROR","msg":"error generating diff","error":"no diff found"}
+{"time":"2025-11-27T01:33:24.522569176Z","level":"ERROR","msg":"error generating diff","error":"no diff found"}

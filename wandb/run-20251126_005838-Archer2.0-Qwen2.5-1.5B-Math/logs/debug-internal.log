@@ -1,0 +1,13 @@
+{"time":"2025-11-26T00:58:40.467521922Z","level":"INFO","msg":"stream: starting","core version":"0.23.0"}
+{"time":"2025-11-26T00:58:40.75968343Z","level":"INFO","msg":"stream: created new stream","id":"Archer2.0-Qwen2.5-1.5B-Math"}
+{"time":"2025-11-26T00:58:40.759849031Z","level":"INFO","msg":"handler: started","stream_id":"Archer2.0-Qwen2.5-1.5B-Math"}
+{"time":"2025-11-26T00:58:40.779369431Z","level":"INFO","msg":"stream: started","id":"Archer2.0-Qwen2.5-1.5B-Math"}
+{"time":"2025-11-26T00:58:40.780108701Z","level":"INFO","msg":"writer: started","stream_id":"Archer2.0-Qwen2.5-1.5B-Math"}
+{"time":"2025-11-26T00:58:40.780160217Z","level":"INFO","msg":"sender: started","stream_id":"Archer2.0-Qwen2.5-1.5B-Math"}
+{"time":"2025-11-26T00:58:41.129061905Z","level":"WARN","msg":"handleCodeSave: program relative path is empty"}
+{"time":"2025-11-26T01:28:24.574646894Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-11-26T01:28:25.014800781Z","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-11-26T01:28:25.029887044Z","level":"INFO","msg":"stream: closing","id":"Archer2.0-Qwen2.5-1.5B-Math"}
+{"time":"2025-11-26T01:28:25.029899588Z","level":"INFO","msg":"handler: closed","stream_id":"Archer2.0-Qwen2.5-1.5B-Math"}
+{"time":"2025-11-26T01:28:25.035644797Z","level":"INFO","msg":"sender: closed","stream_id":"Archer2.0-Qwen2.5-1.5B-Math"}
+{"time":"2025-11-26T01:28:25.035663542Z","level":"INFO","msg":"stream: closed","id":"Archer2.0-Qwen2.5-1.5B-Math"}

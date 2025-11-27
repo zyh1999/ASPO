@@ -56,7 +56,7 @@ sp_size=1
 gen_tp=1
 use_dynamic_bsz=False
 # 2x80G A100: 提高每卡 micro batch 利用显存（如 OOM 再降回 4）
-micro_batch_size_per_gpu=8
+micro_batch_size_per_gpu=16
 actor_ppo_max_token_len=$((max_prompt_length + v_max_response_length))
 infer_ppo_max_token_len=$((max_prompt_length + v_max_response_length))
 offload=False

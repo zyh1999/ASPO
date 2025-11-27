@@ -1,0 +1,49 @@
+diff --git a/scripts/train/run_archer2.0_qwen2.5_1.5b_code.sh b/scripts/train/run_archer2.0_qwen2.5_1.5b_code.sh
+index edf6f21..b92cec9 100644
+--- a/scripts/train/run_archer2.0_qwen2.5_1.5b_code.sh
++++ b/scripts/train/run_archer2.0_qwen2.5_1.5b_code.sh
+@@ -35,11 +35,11 @@ train_prompt_mini_bsz=16
+ MODEL_PATH=deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
+ CKPTS_DIR=./output/${project_name}/${exp_name} && mkdir -p $CKPTS_DIR
+ data_dir=./data
+-TRAIN_FILE=$data_dir/train/archer2.0-code-1.5b-train.json
++TRAIN_FILE=$data_dir/train/archer2.0-code-1.5b-train.parquet
+ TEST_FILE=$data_dir/test/livecodebench_v5.json
+ 
+ # Algorithm
+-n_resp_per_prompt=16
++n_resp_per_prompt=8
+ temperature=1.0
+ top_p=1.0
+ top_k=-1 # 0 for HF rollout, -1 for vLLM rollout
+@@ -70,6 +70,21 @@ high_entropy_clip_ratio_high=0.4
+ # Trainer
+ use_overlong_filter=False
+ 
++# 如果本地没有 Archer2.0-Code-1.5B 的训练 parquet，就从 HF 下载并保存
++if [ ! -f "${TRAIN_FILE}" ]; then
++  python - << 'EOF'
++from datasets import load_dataset
++import os
++
++data_dir = "data/train"
++os.makedirs(data_dir, exist_ok=True)
++
++ds = load_dataset("Fate-Zero/Archer2.0-Code-1.5B", split="train")
++out_path = os.path.join(data_dir, "archer2.0-code-1.5b-train.parquet")
++ds.to_parquet(out_path)
++print("wrote", out_path)
++EOF
++fi
+ 
+ python -m dapo.main_dapo \
+     data.train_files="${TRAIN_FILE}" \
+@@ -144,7 +159,7 @@ python -m dapo.main_dapo \
+     trainer.logger=['console','wandb'] \
+     trainer.project_name="${project_name}" \
+     trainer.experiment_name="${exp_name}" \
+-    trainer.n_gpus_per_node=1 \
++    trainer.n_gpus_per_node=2 \
+     trainer.nnodes="${nnodes}" \
+     trainer.balance_batch=False \
+     trainer.val_before_train=False \

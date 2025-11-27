@@ -1,0 +1,474 @@
+_wandb:
+    value:
+        cli_version: 0.23.0
+        e:
+            dk7udz5p3bldnqijkq4tnrudjrrspiw4:
+                args:
+                    - --node-ip-address=10.10.8.57
+                    - --node-manager-port=43077
+                    - --object-store-name=/tmp/slurm.9238068/ray/session_2025-11-27_02-31-46_480182_387955/sockets/plasma_store
+                    - --raylet-name=/tmp/slurm.9238068/ray/session_2025-11-27_02-31-46_480182_387955/sockets/raylet
+                    - --redis-address=None
+                    - --metrics-agent-port=58093
+                    - --runtime-env-agent-port=55806
+                    - --logging-rotate-bytes=536870912
+                    - --logging-rotate-backup-count=5
+                    - --runtime-env-agent-port=55806
+                    - --gcs-address=10.10.8.57:59646
+                    - --session-name=session_2025-11-27_02-31-46_480182_387955
+                    - --temp-dir=/tmp/slurm.9238068/ray
+                    - --webui=127.0.0.1:8265
+                    - --cluster-id=a1c30ac7194ac19d10fb53b66541003dd8bb39c00ec8188d6ae566ca
+                    - --startup-token=48
+                    - --worker-launch-time-ms=1764210730895
+                    - --node-id=c51252ba322721f26b192637f55fc99962403d75723267c4e2896d5f
+                    - --runtime-env-hash=-1053485826
+                cpu_count: 48
+                cpu_count_logical: 48
+                cudaVersion: "13.0"
+                disk:
+                    /:
+                        total: "16729894912"
+                        used: "9337303040"
+                email: 1007108223@qq.com
+                executable: /mnt/iusers01/fatpou01/compsci01/h99859yz/miniconda3/envs/ASPO/bin/python
+                git:
+                    commit: ed52088179d5494fcdfc9cc6e930052ae8ef08c7
+                    remote: git@github.com:zyh1999/ASPO.git
+                gpu: NVIDIA A100-SXM4-80GB
+                gpu_count: 2
+                gpu_nvidia:
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A100-SXM4-80GB
+                      uuid: GPU-7a1bc1c8-d877-39bf-5ddd-65078243ae13
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A100-SXM4-80GB
+                      uuid: GPU-3d3a35bb-be6b-f155-12a9-ad5f9b61ac00
+                host: node857.csf3.man.alces.network
+                memory:
+                    total: "540087820288"
+                os: Linux-5.14.0-570.37.1.el9_6.x86_64-x86_64-with-glibc2.34
+                program: /mnt/iusers01/fatpou01/compsci01/h99859yz/miniconda3/envs/ASPO/lib/python3.10/site-packages/ray/_private/workers/default_worker.py
+                python: CPython 3.10.19
+                root: /mnt/iusers01/fatpou01/compsci01/h99859yz/ASPO/Archer2.0
+                slurm:
+                    cluster_name: csf3.man.alces.network
+                    conf: /etc/slurm/slurm.conf
+                    cpu_bind: quiet,mask_cpu:0x000000000010,0x000000000002,0x000000001000,0x000000000200,0x000000100000,0x000000020000,0x000010000000,0x000002000000,0x001000000000,0x000200000000,0x100000000000,0x020000000000,0x000000000040,0x000000000008,0x000000004000,0x000000000800,0x000000400000,0x000000080000,0x000040000000,0x000008000000,0x004000000000,0x000800000000,0x400000000000,0x080000000000
+                    cpu_bind_list: 0x000000000010,0x000000000002,0x000000001000,0x000000000200,0x000000100000,0x000000020000,0x000010000000,0x000002000000,0x001000000000,0x000200000000,0x100000000000,0x020000000000,0x000000000040,0x000000000008,0x000000004000,0x000000000800,0x000000400000,0x000000080000,0x000040000000,0x000008000000,0x004000000000,0x000800000000,0x400000000000,0x080000000000
+                    cpu_bind_type: 'mask_cpu:'
+                    cpu_bind_verbose: quiet
+                    cpus_on_node: "24"
+                    gpus: "2"
+                    gpus_on_node: "2"
+                    gtids: 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23
+                    job_account: gpu-aifun
+                    job_cpus_per_node: "24"
+                    job_end_time: "1764275635"
+                    job_gid: "10049"
+                    job_group: fatpou01
+                    job_id: "9238068"
+                    job_name: bash
+                    job_nodelist: node857
+                    job_num_nodes: "1"
+                    job_partition: gpuA
+                    job_qos: gpu-aifun
+                    job_start_time: "1764189235"
+                    job_uid: "778916"
+                    job_user: h99859yz
+                    jobid: "9238068"
+                    launch_node_ipaddr: 10.10.0.121
+                    localid: "0"
+                    nnodes: "1"
+                    nodeid: "0"
+                    nodelist: node857
+                    nprocs: "24"
+                    ntasks: "24"
+                    oom_kill_step: "0"
+                    prio_process: "0"
+                    procid: "0"
+                    pty_port: "46087"
+                    pty_win_col: "95"
+                    pty_win_row: "21"
+                    script_context: prolog_task
+                    srun_comm_host: 10.10.0.121
+                    srun_comm_port: "44151"
+                    step_gpus: 1,2
+                    step_id: "0"
+                    step_launcher_port: "44151"
+                    step_nodelist: node857
+                    step_num_nodes: "1"
+                    step_num_tasks: "24"
+                    step_tasks_per_node: "24"
+                    stepid: "0"
+                    submit_dir: /mnt/iusers01/fatpou01/compsci01/h99859yz
+                    submit_host: login1.csf3.man.alces.network
+                    task_pid: "323813"
+                    tasks_per_node: "24"
+                    time_format: '%d/%m/%y %H:%M'
+                    topology_addr: node857
+                    topology_addr_pattern: node
+                    umask: "0022"
+                startedAt: "2025-11-27T02:39:07.265334Z"
+                writerId: dk7udz5p3bldnqijkq4tnrudjrrspiw4
+        m: []
+        python_version: 3.10.19
+        t:
+            "1":
+                - 1
+                - 5
+                - 11
+                - 30
+                - 41
+                - 49
+                - 50
+                - 51
+                - 53
+                - 71
+                - 98
+                - 105
+            "2":
+                - 1
+                - 5
+                - 11
+                - 30
+                - 41
+                - 49
+                - 50
+                - 51
+                - 53
+                - 71
+                - 98
+                - 105
+            "3":
+                - 2
+                - 5
+                - 13
+                - 14
+                - 16
+                - 61
+                - 62
+            "4": 3.10.19
+            "5": 0.23.0
+            "6": 4.57.3
+            "12": 0.23.0
+            "13": linux-x86_64
+actor_rollout_ref:
+    value:
+        actor:
+            checkpoint:
+                load_contents:
+                    - model
+                    - optimizer
+                    - extra
+                save_contents:
+                    - model
+                    - optimizer
+                    - extra
+            clip_ratio: 0.2
+            clip_ratio_c: 3
+            clip_ratio_high: 0.2
+            clip_ratio_low: 0.2
+            entropy_checkpointing: false
+            entropy_coeff: 0
+            entropy_from_logits_with_chunking: false
+            fsdp_config:
+                forward_prefetch: false
+                fsdp_size: -1
+                offload_policy: false
+                optimizer_offload: false
+                param_offload: false
+                reshard_after_forward: true
+                wrap_policy:
+                    min_num_params: 0
+            grad_clip: 1
+            high_entropy_clip_ratio_high: 0.4
+            high_entropy_clip_ratio_low: 0.4
+            high_entropy_kl_loss_scale_coef: 0
+            kl_loss_coef: 0.001
+            kl_loss_type: low_var_kl
+            loss_agg_mode: token-mean
+            low_entropy_clip_ratio_high: 0.2
+            low_entropy_clip_ratio_low: 0.2
+            optim:
+                lr: 1e-06
+                lr_warmup_steps: 10
+                lr_warmup_steps_ratio: 0
+                min_lr_ratio: 0
+                num_cycles: 0.5
+                total_training_steps: 2100
+                warmup_style: constant
+                weight_decay: 0.1
+            ppo_epochs: 3
+            ppo_max_token_len_per_gpu: 2048
+            ppo_micro_batch_size: null
+            ppo_micro_batch_size_per_gpu: 16
+            ppo_mini_batch_size: 16
+            shuffle: false
+            strategy: fsdp
+            ulysses_sequence_parallel_size: 1
+            use_archer_policy_loss: true
+            use_dynamic_bsz: false
+            use_kl_loss: true
+            use_token_entropy_separate: false
+            use_torch_compile: true
+        hybrid_engine: true
+        model:
+            enable_activation_offload: false
+            enable_gradient_checkpointing: true
+            external_lib: null
+            fused_kernel_options:
+                impl_backend: torch
+            lora_alpha: 16
+            lora_rank: 0
+            path: deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
+            target_modules: all-linear
+            trust_remote_code: false
+            use_fused_kernels: false
+            use_liger: false
+            use_remove_padding: true
+            use_shm: false
+        ref:
+            entropy_checkpointing: false
+            entropy_from_logits_with_chunking: false
+            fsdp_config:
+                forward_prefetch: false
+                param_offload: false
+                reshard_after_forward: true
+                wrap_policy:
+                    min_num_params: 0
+            log_prob_max_token_len_per_gpu: 2048
+            log_prob_micro_batch_size: null
+            log_prob_micro_batch_size_per_gpu: 1
+            log_prob_use_dynamic_bsz: false
+            strategy: fsdp
+            ulysses_sequence_parallel_size: 1
+            use_torch_compile: true
+        rollout:
+            disable_log_stats: true
+            do_sample: true
+            dtype: bfloat16
+            enable_chunked_prefill: true
+            enforce_eager: false
+            engine_kwargs:
+                sglang:
+                    attention_backend: null
+                vllm:
+                    swap_space: null
+            free_cache_engine: false
+            gpu_memory_utilization: 0.7
+            ignore_eos: false
+            layered_summon: false
+            load_format: dummy_dtensor
+            log_prob_max_token_len_per_gpu: 2048
+            log_prob_micro_batch_size: null
+            log_prob_micro_batch_size_per_gpu: 1
+            log_prob_use_dynamic_bsz: false
+            max_model_len: 2048
+            max_num_batched_tokens: 2048
+            max_num_seqs: 1024
+            mode: sync
+            multi_turn:
+                completion_callback: null
+                enable: false
+                enable_tokenization_sanity_check: true
+                max_turns: null
+                tool_config_path: null
+                use_inference_chat_template: false
+            "n": 8
+            name: vllm
+            prompt_length: 1024
+            response_length: 1024
+            temperature: 1
+            tensor_model_parallel_size: 1
+            top_k: -1
+            top_p: 1
+            use_fire_sampling: false
+            val_kwargs:
+                do_sample: true
+                "n": 4
+                response_length: 1024
+                temperature: 0.6
+                top_k: -1
+                top_p: 0.95
+algorithm:
+    value:
+        adv_estimator: grpo
+        filter_groups:
+            enable: false
+            max_num_gen_batches: 0
+            metric: null
+        gamma: 1
+        kl_ctrl:
+            horizon: 10000
+            kl_coef: 0
+            target_kl: 0.1
+            type: fixed
+        kl_penalty: kl
+        lam: 1
+        norm_adv_by_std_in_grpo: true
+        pf_ppo:
+            reweight_method: pow
+            weight_pow: 2
+        use_kl_in_reward: false
+        use_pf_ppo: false
+critic:
+    value:
+        checkpoint:
+            load_contents:
+                - model
+                - optimizer
+                - extra
+            save_contents:
+                - model
+                - optimizer
+                - extra
+        cliprange_value: 0.5
+        forward_max_token_len_per_gpu: 32768
+        forward_micro_batch_size: null
+        forward_micro_batch_size_per_gpu: null
+        grad_clip: 1
+        loss_agg_mode: token-mean
+        model:
+            enable_activation_offload: false
+            enable_gradient_checkpointing: true
+            external_lib: null
+            fsdp_config:
+                forward_prefetch: false
+                fsdp_size: -1
+                offload_policy: false
+                optimizer_offload: false
+                param_offload: false
+                reshard_after_forward: true
+                wrap_policy:
+                    min_num_params: 0
+            lora_alpha: 16
+            lora_rank: 0
+            path: ~/models/deepseek-llm-7b-chat
+            target_modules: all-linear
+            tokenizer_path: deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
+            trust_remote_code: false
+            use_remove_padding: false
+            use_shm: false
+        optim:
+            lr: 1e-05
+            lr_warmup_steps_ratio: 0
+            min_lr_ratio: null
+            total_training_steps: 2100
+            warmup_style: constant
+            weight_decay: 0.01
+        ppo_epochs: 3
+        ppo_max_token_len_per_gpu: 32768
+        ppo_micro_batch_size: null
+        ppo_micro_batch_size_per_gpu: null
+        ppo_mini_batch_size: 16
+        rollout_n: 8
+        shuffle: false
+        strategy: fsdp
+        ulysses_sequence_parallel_size: 1
+        use_dynamic_bsz: false
+custom_reward_function:
+    value:
+        name: compute_score
+        path: null
+data:
+    value:
+        custom_cls:
+            name: null
+            path: null
+        dataloader_num_workers: 1
+        filter_overlong_prompts: true
+        filter_overlong_prompts_workers: 1
+        gen_batch_size: 64
+        image_key: images
+        max_prompt_length: 1024
+        max_response_length: 1024
+        prompt_key: prompt
+        return_full_prompt: false
+        return_raw_chat: false
+        return_raw_input_ids: false
+        reward_fn_key: data_source
+        shuffle: true
+        tokenizer: null
+        train_batch_size: 64
+        train_files: ./data/train/archer2.0-math-1.5b-train.parquet
+        truncation: error
+        trust_remote_code: false
+        use_shm: false
+        val_batch_size: null
+        val_files: ./data/test/archer2.0-math-1.5b-val.parquet
+        validation_shuffle: false
+        video_key: videos
+ray_init:
+    value:
+        num_cpus: null
+        timeline_json_file: null
+reward_model:
+    value:
+        enable: false
+        forward_max_token_len_per_gpu: 32768
+        launch_reward_fn_async: false
+        max_length: null
+        micro_batch_size: null
+        micro_batch_size_per_gpu: null
+        model:
+            external_lib: null
+            fsdp_config:
+                forward_prefetch: false
+                fsdp_size: -1
+                param_offload: false
+                reshard_after_forward: true
+                wrap_policy:
+                    min_num_params: 0
+            input_tokenizer: deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
+            path: ~/models/FsfairX-LLaMA3-RM-v0.1
+            trust_remote_code: false
+            use_fused_kernels: false
+            use_remove_padding: false
+            use_shm: false
+        overlong_buffer:
+            enable: true
+            len: 16
+            log: false
+            penalty_factor: 1
+        reward_manager: wizard
+        sandbox_fusion:
+            max_concurrent: 64
+            url: null
+        strategy: fsdp
+        ulysses_sequence_parallel_size: 1
+        use_dynamic_bsz: false
+trainer:
+    value:
+        balance_batch: false
+        critic_warmup: 0
+        default_hdfs_dir: null
+        default_local_dir: ./output/Archer2.0/Archer2.0-Qwen2.5-1.5B-Math
+        del_local_ckpt_after_load: false
+        device: cuda
+        enable_overlong_filter: false
+        experiment_name: Archer2.0-Qwen2.5-1.5B-Math
+        log_val_generations: 0
+        logger:
+            - console
+            - wandb
+        max_actor_ckpt_to_keep: null
+        max_critic_ckpt_to_keep: null
+        n_gpus_per_node: 2
+        nnodes: 1
+        project_name: Archer2.0
+        ray_wait_register_center_timeout: 300
+        rejection_sample: true
+        resume_from_path: null
+        resume_mode: auto
+        rollout_data_dir: null
+        save_freq: 20
+        test_freq: 20
+        total_epochs: 2
+        total_training_steps: null
+        val_before_train: false
+        validation_data_dir: ./output/Archer2.0/Archer2.0-Qwen2.5-1.5B-Math/eval

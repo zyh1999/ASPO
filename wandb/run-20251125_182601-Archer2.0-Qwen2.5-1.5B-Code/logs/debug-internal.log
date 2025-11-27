@@ -1,0 +1,13 @@
+{"time":"2025-11-25T18:26:16.078430045Z","level":"INFO","msg":"stream: starting","core version":"0.23.0"}
+{"time":"2025-11-25T18:26:17.768982168Z","level":"INFO","msg":"stream: created new stream","id":"Archer2.0-Qwen2.5-1.5B-Code"}
+{"time":"2025-11-25T18:26:17.769149713Z","level":"INFO","msg":"handler: started","stream_id":"Archer2.0-Qwen2.5-1.5B-Code"}
+{"time":"2025-11-25T18:26:17.785575384Z","level":"INFO","msg":"stream: started","id":"Archer2.0-Qwen2.5-1.5B-Code"}
+{"time":"2025-11-25T18:26:17.792537091Z","level":"INFO","msg":"writer: started","stream_id":"Archer2.0-Qwen2.5-1.5B-Code"}
+{"time":"2025-11-25T18:26:17.792558972Z","level":"INFO","msg":"sender: started","stream_id":"Archer2.0-Qwen2.5-1.5B-Code"}
+{"time":"2025-11-25T18:26:18.366842947Z","level":"WARN","msg":"handleCodeSave: program relative path is empty"}
+{"time":"2025-11-25T18:40:07.130712288Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-11-25T18:40:07.410703639Z","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-11-25T18:40:07.441239859Z","level":"INFO","msg":"stream: closing","id":"Archer2.0-Qwen2.5-1.5B-Code"}
+{"time":"2025-11-25T18:40:07.441250248Z","level":"INFO","msg":"handler: closed","stream_id":"Archer2.0-Qwen2.5-1.5B-Code"}
+{"time":"2025-11-25T18:40:07.452905974Z","level":"INFO","msg":"sender: closed","stream_id":"Archer2.0-Qwen2.5-1.5B-Code"}
+{"time":"2025-11-25T18:40:07.452915442Z","level":"INFO","msg":"stream: closed","id":"Archer2.0-Qwen2.5-1.5B-Code"}

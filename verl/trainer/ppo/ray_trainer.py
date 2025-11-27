@@ -739,6 +739,8 @@ class RayPPOTrainer:
         for key_info, lst in repetition_infos_dict.items():
             metric_dict[f'val_{key_info}'] = sum(lst) / len(lst)
 
+        # use config.data.max_response_length to compute clip ratio
+        max_response_length = self.config.data.max_response_length
         for key_info, lst in response_length_infos_dict.items():
             metric_dict[f'val_{key_info}/max'] = max(lst)
             metric_dict[f'val_{key_info}/mean'] = sum(lst) / len(lst)

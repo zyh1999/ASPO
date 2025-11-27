@@ -1,0 +1,11 @@
+Using LocalLogger is deprecated. The constructor API will change
+Checkpoint tracker file does not exist: /mnt/iusers01/fatpou01/compsci01/h99859yz/ASPO/Archer2.0/./output/Archer2.0/Archer2.0-Qwen2.5-1.5B-Math/latest_checkpointed_iteration.txt
+Training from scratch
+Training Progress:   0%|          | 0/2100 [00:00<?, ?it/s]
+Batch Top-1 Frequency: 4
+N-gram: Sequence_id 340:  + x_2 + x_3 + x_4 + x_5 + x_6 + x_7 + x_8 + x_9 + x_{10} = 3
+Batch Top-2 Frequency: 3
+N-gram: Sequence_id 24:  b w b w b w b w b w b w b w b w b w b w
+Batch Top-3 Frequency: 3
+N-gram: Sequence_id 24:  w b w b w b w b w b w b w b w b w b w b
+valid prompt: 63 1 0

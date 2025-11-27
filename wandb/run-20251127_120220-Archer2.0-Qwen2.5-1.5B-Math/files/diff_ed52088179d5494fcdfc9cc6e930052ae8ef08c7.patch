@@ -1,0 +1,26 @@
+diff --git a/scripts/train/run_archer2.0_qwen2.5_1.5b_math.sh b/scripts/train/run_archer2.0_qwen2.5_1.5b_math.sh
+index 1f3af06..35a2178 100644
+--- a/scripts/train/run_archer2.0_qwen2.5_1.5b_math.sh
++++ b/scripts/train/run_archer2.0_qwen2.5_1.5b_math.sh
+@@ -56,7 +56,7 @@ sp_size=1
+ gen_tp=1
+ use_dynamic_bsz=False
+ # 2x80G A100: 提高每卡 micro batch 利用显存（如 OOM 再降回 4）
+-micro_batch_size_per_gpu=8
++micro_batch_size_per_gpu=16
+ actor_ppo_max_token_len=$((max_prompt_length + v_max_response_length))
+ infer_ppo_max_token_len=$((max_prompt_length + v_max_response_length))
+ offload=False
+diff --git a/verl/trainer/ppo/ray_trainer.py b/verl/trainer/ppo/ray_trainer.py
+index afad97e..91475f1 100644
+--- a/verl/trainer/ppo/ray_trainer.py
++++ b/verl/trainer/ppo/ray_trainer.py
+@@ -739,6 +739,8 @@ class RayPPOTrainer:
+         for key_info, lst in repetition_infos_dict.items():
+             metric_dict[f'val_{key_info}'] = sum(lst) / len(lst)
+ 
++        # use config.data.max_response_length to compute clip ratio
++        max_response_length = self.config.data.max_response_length
+         for key_info, lst in response_length_infos_dict.items():
+             metric_dict[f'val_{key_info}/max'] = max(lst)
+             metric_dict[f'val_{key_info}/mean'] = sum(lst) / len(lst)

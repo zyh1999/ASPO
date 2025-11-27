@@ -1,0 +1,50 @@
+Using LocalLogger is deprecated. The constructor API will change
+Checkpoint tracker file does not exist: /mnt/iusers01/fatpou01/compsci01/h99859yz/ASPO/Archer2.0/./output/Archer2.0/Archer2.0-Qwen2.5-1.5B-Math/latest_checkpointed_iteration.txt
+Training from scratch
+Training Progress:   0%|          | 0/10500 [00:00<?, ?it/s]Unhandled error (suppress with 'RAY_IGNORE_UNHANDLED_ERRORS=1'): [36mray::WorkerDict.actor_rollout_update_actor()[39m (pid=1824294, ip=10.10.8.59, actor_id=1b85d371451abc4d399b690401000000, repr=<verl.single_controller.ray.base.WorkerDict object at 0x149d959643a0>)
+Batch Top-1 Frequency: 4
+N-gram: Sequence_id 479:  \begin{aligned} & \sqrt{\alpha} = \frac{\sqrt{a + b}}{2}, \\ & \sqrt{\beta} = \frac{\sqrt{a - \sqrt{b}}}{2}, \\ & \sqrt{\gamma} = \frac{\sqrt{-\sqrt{b} +
+Batch Top-2 Frequency: 3
+N-gram: Sequence_id 8:  1 + t1 + t2 + t1 t2 - 2 = (1 - 2) + t1 + t2 + t1
+Batch Top-3 Frequency: 3
+N-gram: Sequence_id 8:  + t1 + t2 + t1 t2 - 2 = (1 - 2) + t1 + t2 + t1 t2
+valid prompt: 42 12 10
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/ASPO/Archer2.0/verl/single_controller/ray/base.py", line 645, in func
+    return getattr(self.worker_dict[key], name)(*args, **kwargs)
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/ASPO/Archer2.0/verl/single_controller/base/decorator.py", line 540, in inner
+    return func(*args, **kwargs)
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/ASPO/Archer2.0/verl/workers/fsdp_workers.py", line 601, in update_actor
+    metrics = self.actor.update_policy(data=data)
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/ASPO/Archer2.0/verl/utils/debug/performance.py", line 78, in f
+    return self.log(decorated_function, *args, **kwargs)
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/ASPO/Archer2.0/verl/utils/debug/performance.py", line 88, in log
+    output = func(*args, **kwargs)
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/ASPO/Archer2.0/verl/workers/actor/dp_actor.py", line 456, in update_policy
+    if self.config.use_token_entropy_separate:
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/miniconda3/envs/ASPO/lib/python3.10/site-packages/omegaconf/dictconfig.py", line 359, in __getattr__
+    self._format_and_raise(key=key, value=None, cause=e)
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/miniconda3/envs/ASPO/lib/python3.10/site-packages/omegaconf/base.py", line 231, in _format_and_raise
+    format_and_raise(
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/miniconda3/envs/ASPO/lib/python3.10/site-packages/omegaconf/_utils.py", line 819, in format_and_raise
+    _raise(ex, cause)
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/miniconda3/envs/ASPO/lib/python3.10/site-packages/omegaconf/_utils.py", line 797, in _raise
+    raise ex.with_traceback(sys.exc_info()[2])  # set env var OC_CAUSE=1 for full trace
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/miniconda3/envs/ASPO/lib/python3.10/site-packages/omegaconf/dictconfig.py", line 351, in __getattr__
+    return self._get_impl(
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/miniconda3/envs/ASPO/lib/python3.10/site-packages/omegaconf/dictconfig.py", line 442, in _get_impl
+    node = self._get_child(
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/miniconda3/envs/ASPO/lib/python3.10/site-packages/omegaconf/basecontainer.py", line 73, in _get_child
+    child = self._get_node(
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/miniconda3/envs/ASPO/lib/python3.10/site-packages/omegaconf/dictconfig.py", line 475, in _get_node
+    self._validate_get(key)
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/miniconda3/envs/ASPO/lib/python3.10/site-packages/omegaconf/dictconfig.py", line 164, in _validate_get
+    self._format_and_raise(
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/miniconda3/envs/ASPO/lib/python3.10/site-packages/omegaconf/base.py", line 231, in _format_and_raise
+    format_and_raise(
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/miniconda3/envs/ASPO/lib/python3.10/site-packages/omegaconf/_utils.py", line 899, in format_and_raise
+    _raise(ex, cause)
+  File "/mnt/iusers01/fatpou01/compsci01/h99859yz/miniconda3/envs/ASPO/lib/python3.10/site-packages/omegaconf/_utils.py", line 797, in _raise
+    raise ex.with_traceback(sys.exc_info()[2])  # set env var OC_CAUSE=1 for full trace
+omegaconf.errors.ConfigAttributeError: Key 'use_token_entropy_separate' is not in struct
+    full_key: actor_rollout_ref.actor.use_token_entropy_separate
+    object_type=dict

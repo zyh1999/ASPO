@@ -1,7 +1,0 @@
-{"time":"2025-11-26T02:19:16.003446164Z","level":"INFO","msg":"stream: starting","core version":"0.23.0"}
-{"time":"2025-11-26T02:19:16.293273486Z","level":"INFO","msg":"stream: created new stream","id":"Archer2.0-Qwen2.5-1.5B-Math"}
-{"time":"2025-11-26T02:19:16.293449306Z","level":"INFO","msg":"handler: started","stream_id":"Archer2.0-Qwen2.5-1.5B-Math"}
-{"time":"2025-11-26T02:19:16.307587601Z","level":"INFO","msg":"stream: started","id":"Archer2.0-Qwen2.5-1.5B-Math"}
-{"time":"2025-11-26T02:19:16.308192628Z","level":"INFO","msg":"writer: started","stream_id":"Archer2.0-Qwen2.5-1.5B-Math"}
-{"time":"2025-11-26T02:19:16.308241069Z","level":"INFO","msg":"sender: started","stream_id":"Archer2.0-Qwen2.5-1.5B-Math"}
-{"time":"2025-11-26T02:19:16.693253044Z","level":"WARN","msg":"handleCodeSave: program relative path is empty"}

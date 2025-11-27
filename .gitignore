@@ -4,3 +4,6 @@ outputs
 data/**
 verl.egg-info
 
+flash_attn-*.whl
+wandb/
+

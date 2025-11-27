@@ -1,6 +1,0 @@
-Using LocalLogger is deprecated. The constructor API will change
-Checkpoint tracker file does not exist: /mnt/iusers01/fatpou01/compsci01/h99859yz/ASPO/Archer2.0/./output/Archer2.0/Archer2.0-Qwen2.5-1.5B-Code/latest_checkpointed_iteration.txt
-Training from scratch
-Training Progress:   0%|          | 0/1380 [00:00<?, ?it/s]/mnt/iusers01/fatpou01/compsci01/h99859yz/miniconda3/envs/ASPO/lib/python3.10/site-packages/torch/utils/data/dataloader.py:617: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
-  warnings.warn(
-Error in reward_fn: 'reward_model'

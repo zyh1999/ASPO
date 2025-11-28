@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
+unset ROCR_VISIBLE_DEVICES
 
 nnodes=1
 
 project_name='Archer2.0'
-exp_name='Archer2.0-Qwen2.5-1.5B-Math'
+exp_name='Archer2.0-Qwen2.5-1.5B-Math_2'
 
 adv_estimator=grpo
 
@@ -154,6 +155,7 @@ python -m dapo.main_dapo \
     actor_rollout_ref.ref.log_prob_max_token_len_per_gpu=${infer_ppo_max_token_len} \
     actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=${infer_ppo_max_token_len} \
     actor_rollout_ref.model.path="${MODEL_PATH}" \
+    +actor_rollout_ref.model.override_config.attn_implementation=flash_attention_2 \
     actor_rollout_ref.model.enable_gradient_checkpointing=True \
     actor_rollout_ref.actor.optim.lr=1e-6 \
     actor_rollout_ref.actor.optim.lr_warmup_steps=10 \
